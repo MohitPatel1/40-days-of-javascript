@@ -15,6 +15,8 @@ function outer() {
 const counter = outer();
 counter();
 counter();
+// 1
+// 2
 ```
 
 ## 2. What will be the output and why?
@@ -26,6 +28,7 @@ function testClosure() {
     };
 }
 console.log(testClosure()());
+// 100
 ```
 
 ## 3. Create a button dynamically and attach a click event handler using a closure. The handler should count and log how many times the button was clicked.
@@ -37,5 +40,24 @@ console.log(testClosure()());
 - 2) The object remains in memory as long as the closure exists
 - 3) The object is automatically cloned
 - 4) None of the Above.
+// 2
 
 ## 6. Write a function factory of counter to increment, decrement, and reset a counter. Use closure to refer the count value across the functuions.
+
+function counterFactory() {
+    let count = 0;
+    return {
+        increment: function () {
+            count++;
+            console.log(count);
+        },
+        decrement: function () {
+            count--;
+            console.log(count);
+        },
+        reset: function () {
+            count = 0;
+            console.log(count);
+        }
+    };
+}
